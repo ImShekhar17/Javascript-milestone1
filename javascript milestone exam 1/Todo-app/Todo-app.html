@@ -1,0 +1,47 @@
+<!-- /* 21. TODO App
+Create a simple to-do app to add TODO items to the list through an input field and a button. */ -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TODO App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #todo-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #todo-list li {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    #todo-list li:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>TODO App</h1>
+  <input type="text" id="todo-input" placeholder="Add TODO item">
+  <button id="add-button">Add</button>
+  <ul id="todo-list"></ul>
+
+  <script>
+    const todoInput = document.getElementById('todo-input');
+    const addButton = document.getElementById('add-button');
+    const todoList = document.getElementById('todo-list');
+
+    addButton.addEventListener('click', () => {
+      const todoItem = todoInput.value.trim();
+      if (todoItem !== '') {
+        const listItem = document.createElement('li');
+        listItem.textContent = todoItem;
+        todoList.appendChild(listItem);
+        todoInput.value = '';
+      }
+    });
+  </script>
+</body>
+</html>
